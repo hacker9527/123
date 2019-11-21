@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <link href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div th:replace="~{fragments/header::header}"></div>
+<div class="container blog-content-container">
+<table class="table table-striped">
+    <thead>
+    <tr>
+        <td>ID</td>
+        <td>Name</td>
+        <td>Password</td>
+        <td>Email</td>
+    </tr>
+    <tr th:if="${userlist} eq null">
+        <td colspan="4">没有用户信息</td>
+    </tr>
+    <tr th:each="user:${userlist}">
+        <td th:text="${user.id}"></td>
+        <td th:text="${user.name}"></td>
+        <td th:text="${user.password}"></td>
+        <td th:text="${user.email}"></td>
+    </tr>
+    </thead>
+</table></div>
+<div th:replace="~{fragments/footer::footer}"></div>
+</body>
+</html>
